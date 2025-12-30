@@ -6,7 +6,7 @@ BOOLEAN Svm::IsSupported( ) {
   // Check AMD vendor
   __cpuid( cpuInfo, 0 );
 
-  // Check for AuthenticAMD 
+  // Check for AuthenticAMD
   if ( cpuInfo[ 1 ] != 'htuA' || cpuInfo[ 3 ] != 'itne' || cpuInfo[ 2 ] != 'DMAc' ) {
     Serial::Print( "[SVM] Not AMD CPU\n" );
     return FALSE;
@@ -34,4 +34,13 @@ BOOLEAN Svm::IsDisabled( ) {
   }
 
   return FALSE;
+}
+
+void Svm::Enable( ) {
+  UINT64 efer  = __readmsr( MSR_EFER );
+  efer        |= EFER_SVME;
+
+  __writemsr( MSR_EFER, efer );
+
+  Serial::Print( "[SVM] EFER.SVME enabled\n" );
 }
