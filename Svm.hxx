@@ -3,6 +3,8 @@
 #include <ntddk.h>
 #include <intrin.h>
 
+#include "Serial.hxx"
+
 // MSRs
 #define MSR_EFER        0xC0000080
 #define MSR_VM_CR       0xC0010114
