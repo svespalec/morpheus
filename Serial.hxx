@@ -39,7 +39,7 @@ namespace Serial {
 
     for ( int i = 15; i >= 0; i-- ) {
       int nibble    = ( val >> ( i * 4 ) ) & 0xF;
-      buf[ 15 - i ] = nibble < 10 ? '0' + nibble : 'A' + nibble - 10;
+      buf[ 15 - i ] = static_cast<char>( nibble < 10 ? '0' + nibble : 'A' + nibble - 10 );
     }
 
     buf[ 16 ] = 0;
