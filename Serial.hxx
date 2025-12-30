@@ -30,4 +30,21 @@ namespace Serial {
       PutChar( *str );
     }
   }
+
+  inline void PrintHex( const char* label, UINT64 val ) {
+    Print( label );
+    Print( ": 0x" );
+
+    char buf[ 17 ];
+
+    for ( int i = 15; i >= 0; i-- ) {
+      int nibble    = ( val >> ( i * 4 ) ) & 0xF;
+      buf[ 15 - i ] = nibble < 10 ? '0' + nibble : 'A' + nibble - 10;
+    }
+
+    buf[ 16 ] = 0;
+
+    Print( buf );
+    Print( "\n" );
+  }
 } // namespace Serial
