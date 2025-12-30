@@ -3,8 +3,6 @@
 
 VOID DriverUnload( PDRIVER_OBJECT DriverObject ) {
   UNREFERENCED_PARAMETER( DriverObject );
-
-  DbgPrint( "Unloaded" );
 }
 
 NTSTATUS DriverEntry( PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath ) {
@@ -12,7 +10,14 @@ NTSTATUS DriverEntry( PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath 
 
   DriverObject->DriverUnload = DriverUnload;
 
-  DbgPrint( "Loaded" );
+  Serial::Init();
+
+  Serial::Print( "[HV] Driver loading\n" );
+
+  if ( !Svm::IsSupported() || Svm::IsDisabled() )
+    return STATUS_NOT_SUPPORTED;
+
+  Serial::Print( "[HV] All checks passed\n" );
 
   Serial::PrintHex( "CR0", __readcr0() );
   Serial::PrintHex( "CR3", __readcr3() );
