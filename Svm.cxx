@@ -24,3 +24,14 @@ BOOLEAN Svm::IsSupported( ) {
 
   return TRUE;
 }
+
+BOOLEAN Svm::IsDisabled( ) {
+  UINT64 vmCr = __readmsr( MSR_VM_CR );
+
+  if ( vmCr & VM_CR_SVMDIS ) {
+    Serial::Print( "[SVM] SVM disabled in BIOS\n" );
+    return TRUE;
+  }
+
+  return FALSE;
+}
