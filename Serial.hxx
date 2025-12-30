@@ -21,4 +21,13 @@ namespace Serial {
 
     __outbyte( COM1, c );
   }
+
+  inline void Print( const char* str ) {
+    for ( ; *str; ++str ) {
+      if ( *str == '\n' )
+        PutChar( '\r' );
+
+      PutChar( *str );
+    }
+  }
 } // namespace Serial
