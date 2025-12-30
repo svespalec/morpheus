@@ -1,20 +1,16 @@
 ---
 BasedOnStyle: LLVM
 AccessModifierOffset: -2
-AlignAfterOpenBracket: Align
-AlignArrayOfStructures: Right
+AlignAfterOpenBracket: BlockIndent
+AlignArrayOfStructures: None
 AlignConsecutiveAssignments:
-  Enabled: true
-  AcrossEmptyLines: false
-  AcrossComments: false
-  AlignCompound: true
-  PadOperators: true
+  Enabled: false
 AlignConsecutiveBitFields:
   Enabled: true
   AcrossEmptyLines: false
   AcrossComments: false
 AlignConsecutiveDeclarations:
-  Enabled: true
+  Enabled: false
   AcrossEmptyLines: false
   AcrossComments: false
 AlignConsecutiveMacros:
@@ -35,7 +31,7 @@ AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
 AlwaysBreakTemplateDeclarations: Yes
-BinPackArguments: true
+BinPackArguments: false
 BinPackParameters: true
 BitFieldColonSpacing: Both
 BreakBeforeBraces: Custom
@@ -96,14 +92,14 @@ ReflowComments: true
 RequiresClausePosition: OwnLine
 SeparateDefinitionBlocks: Always
 ShortNamespaceLines: 1
-SortIncludes: 'true'
+SortIncludes: Never
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: true
 SpaceAfterLogicalNot: false
 SpaceAfterTemplateKeyword: true
 SpaceAroundPointerQualifiers: After
 SpaceBeforeAssignmentOperators: true
-SpaceBeforeCaseColon: true
+SpaceBeforeCaseColon: false
 SpaceBeforeCpp11BracedList: true
 SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
@@ -120,8 +116,8 @@ SpaceBeforeParensOptions:
   BeforeNonEmptyParentheses: false
 SpaceBeforeRangeBasedForLoopColon: true
 SpaceBeforeSquareBrackets: false
-SpaceInEmptyBlock: true
-SpaceInEmptyParentheses: true
+SpaceInEmptyBlock: false
+SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 1
 SpacesInAngles: Always
 SpacesInCStyleCastParentheses: true

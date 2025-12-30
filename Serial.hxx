@@ -5,7 +5,7 @@
 namespace Serial {
   constexpr UINT16 COM1 = 0x3F8;
 
-  inline void Init( ) {
+  inline void Init() {
     __outbyte( COM1 + 1, 0x00 ); // Disable interrupts
     __outbyte( COM1 + 3, 0x80 ); // Enable DLAB
     __outbyte( COM1 + 0, 0x01 ); // 115200 baud
@@ -15,7 +15,7 @@ namespace Serial {
     __outbyte( COM1 + 4, 0x0B ); // RTS/DSR set
   }
 
-  inline void Flush( ) {
+  inline void Flush() {
     // Wait for transmitter empty (not just THR empty)
     while ( ( __inbyte( COM1 + 5 ) & 0x40 ) == 0 )
       ;
@@ -44,8 +44,8 @@ namespace Serial {
     char buf[ 17 ];
 
     for ( int i = 15; i >= 0; i-- ) {
-      int nibble    = ( val >> ( i * 4 ) ) & 0xF;
-      buf[ 15 - i ] = static_cast<char>( nibble < 10 ? '0' + nibble : 'A' + nibble - 10 );
+      int nibble = ( val >> ( i * 4 ) ) & 0xF;
+      buf[ 15 - i ] = static_cast< char >( nibble < 10 ? '0' + nibble : 'A' + nibble - 10 );
     }
 
     buf[ 16 ] = 0;

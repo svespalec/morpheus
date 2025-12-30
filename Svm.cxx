@@ -1,6 +1,6 @@
 #include "Svm.hxx"
 
-BOOLEAN Svm::IsSupported( ) {
+BOOLEAN Svm::IsSupported() {
   int cpuInfo[ 4 ];
 
   // Check AMD vendor
@@ -25,7 +25,7 @@ BOOLEAN Svm::IsSupported( ) {
   return TRUE;
 }
 
-BOOLEAN Svm::IsDisabled( ) {
+BOOLEAN Svm::IsDisabled() {
   UINT64 vmCr = __readmsr( MSR_VM_CR );
 
   if ( vmCr & VM_CR_SVMDIS ) {
@@ -36,9 +36,9 @@ BOOLEAN Svm::IsDisabled( ) {
   return FALSE;
 }
 
-void Svm::Enable( ) {
-  UINT64 efer  = __readmsr( MSR_EFER );
-  efer        |= EFER_SVME;
+void Svm::Enable() {
+  UINT64 efer = __readmsr( MSR_EFER );
+  efer |= EFER_SVME;
 
   __writemsr( MSR_EFER, efer );
 

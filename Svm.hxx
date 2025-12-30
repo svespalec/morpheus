@@ -1,7 +1,7 @@
 #pragma once
 
-#include <ntddk.h>
 #include <intrin.h>
+#include <ntddk.h>
 
 #include "Serial.hxx"
 
@@ -17,7 +17,7 @@
 #define VM_CR_SVMDIS ( 1ULL << 4 )
 
 namespace Svm {
-  BOOLEAN IsSupported( );
-  BOOLEAN IsDisabled( );
-  void    Enable( );
+  BOOLEAN IsSupported();
+  BOOLEAN IsDisabled();
+  void Enable();
 } // namespace Svm
