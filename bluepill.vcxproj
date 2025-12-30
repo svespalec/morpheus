@@ -94,7 +94,15 @@
     <FilesToPackage Include="$(TargetPath)" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Entry.cpp" />
+    <ClCompile Include="Driver.cxx" />
+    <ClCompile Include="Svm.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Serial.hxx" />
+    <ClInclude Include="Svm.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".clang-format" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
