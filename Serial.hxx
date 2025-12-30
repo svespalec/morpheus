@@ -15,6 +15,12 @@ namespace Serial {
     __outbyte( COM1 + 4, 0x0B ); // RTS/DSR set
   }
 
+  inline void Flush( ) {
+    // Wait for transmitter empty (not just THR empty)
+    while ( ( __inbyte( COM1 + 5 ) & 0x40 ) == 0 )
+      ;
+  }
+
   inline void PutChar( char c ) {
     while ( ( __inbyte( COM1 + 5 ) & 0x20 ) == 0 )
       ;
