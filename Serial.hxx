@@ -14,4 +14,11 @@ namespace Serial {
     __outbyte( COM1 + 2, 0xC7 ); // Enable FIFO
     __outbyte( COM1 + 4, 0x0B ); // RTS/DSR set
   }
+
+  inline void PutChar( char c ) {
+    while ( ( __inbyte( COM1 + 5 ) & 0x20 ) == 0 )
+      ;
+
+    __outbyte( COM1, c );
+  }
 } // namespace Serial
