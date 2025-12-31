@@ -1,5 +1,4 @@
-#include "Serial.hxx"
-#include "Svm.hxx"
+#include "Vmm.hxx"
 
 VOID DriverUnload( PDRIVER_OBJECT DriverObject ) {
   UNREFERENCED_PARAMETER( DriverObject );
@@ -14,7 +13,7 @@ NTSTATUS DriverEntry( PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath 
 
   LOG( "Driver loading" );
 
-  if ( !Svm::IsSupported() || Svm::IsDisabled() )
+  if ( !Vmm::IsSvmSupported() || Vmm::IsSvmDisabled() )
     return STATUS_NOT_SUPPORTED;
 
   LOG( "All checks passed" );

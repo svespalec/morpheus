@@ -22,18 +22,18 @@
     <ClCompile Include="Source\Driver.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Svm.cxx">
+    <ClCompile Include="Source\Vmm.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Svm.hxx">
+    <ClInclude Include="Source\Vmm.hxx">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Serial.hxx">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Vmcb.hxx">
+    <ClInclude Include="Source\Svm.hxx">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -95,12 +95,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Driver.cxx" />
-    <ClCompile Include="Source\Svm.cxx" />
+    <ClCompile Include="Source\Vmm.cxx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Serial.hxx" />
+    <ClInclude Include="Source\Vmm.hxx" />
     <ClInclude Include="Source\Svm.hxx" />
-    <ClInclude Include="Source\Vmcb.hxx" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".clang-format" />

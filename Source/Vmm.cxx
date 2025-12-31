@@ -1,8 +1,8 @@
-#include "Svm.hxx"
+#include "Vmm.hxx"
 
 // Checks if CPU even has SVM hardware capability (AMD + SVM feature bit)
 // This will return true even if SVM is disabled in BIOS as it only checks capabilities
-BOOLEAN Svm::IsSupported() {
+BOOLEAN Vmm::IsSvmSupported() {
   int cpuInfo[ 4 ];
 
   // Check AMD vendor
@@ -31,7 +31,7 @@ BOOLEAN Svm::IsSupported() {
 // This is different from SVM just not being enabled.
 // It means the BIOS explicitly prevents SVM usage which is common
 // on enterprise machines where IT locks down virtualization.
-BOOLEAN Svm::IsDisabled() {
+BOOLEAN Vmm::IsSvmDisabled() {
   UINT64 vmCr = __readmsr( MSR_VM_CR );
 
   if ( vmCr & VM_CR_SVMDIS ) {
@@ -42,7 +42,7 @@ BOOLEAN Svm::IsDisabled() {
   return FALSE;
 }
 
-void Svm::Enable() {
+void Vmm::EnableSvm() {
   // EFER (Extended Feature Enable Register) controls CPU features like SVM, long mode, NX, etc.
   // It's basically just a bunch of on/off switches for extended CPU functionality.
   // The BIOS enables SVM capability, but we must set EFER.SVME to actually use it pretty much
