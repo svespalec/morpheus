@@ -40,4 +40,9 @@
   <ItemGroup>
     <None Include=".clang-format" />
   </ItemGroup>
+  <ItemGroup>
+    <MASM Include="Source\Svm.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+  </ItemGroup>
 </Project>
