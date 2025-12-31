@@ -12,16 +12,16 @@ NTSTATUS DriverEntry( PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath 
 
   Serial::Init();
 
-  Serial::Print( "[HV] Driver loading\n" );
+  LOG( "Driver loading" );
 
   if ( !Svm::IsSupported() || Svm::IsDisabled() )
     return STATUS_NOT_SUPPORTED;
 
-  Serial::Print( "[HV] All checks passed\n" );
+  LOG( "All checks passed" );
 
-  Serial::PrintHex( "CR0", __readcr0() );
-  Serial::PrintHex( "CR3", __readcr3() );
-  Serial::PrintHex( "CR4", __readcr4() );
+  LOG_HEX( "CR0", __readcr0() );
+  LOG_HEX( "CR3", __readcr3() );
+  LOG_HEX( "CR4", __readcr4() );
 
   return STATUS_SUCCESS;
 }

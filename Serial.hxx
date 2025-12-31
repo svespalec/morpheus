@@ -54,3 +54,6 @@ namespace Serial {
     Print( "\n" );
   }
 } // namespace Serial
+
+#define LOG( msg )         Serial::Print( "[MORPHEUS] " msg "\n" )
+#define LOG_HEX( lbl, val ) Serial::PrintHex( "[MORPHEUS] " lbl, val )

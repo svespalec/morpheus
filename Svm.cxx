@@ -10,7 +10,7 @@ BOOLEAN Svm::IsSupported() {
 
   // Check for AuthenticAMD
   if ( cpuInfo[ 1 ] != 'htuA' || cpuInfo[ 3 ] != 'itne' || cpuInfo[ 2 ] != 'DMAc' ) {
-    Serial::Print( "[SVM] Not AMD CPU\n" );
+    LOG( "Not AMD CPU" );
     return FALSE;
   }
 
@@ -18,11 +18,11 @@ BOOLEAN Svm::IsSupported() {
   __cpuid( cpuInfo, 0x80000001 );
 
   if ( ( cpuInfo[ 2 ] & ( 1 << 2 ) ) == 0 ) {
-    Serial::Print( "[SVM] SVM not supported\n" );
+    LOG( "SVM not supported" );
     return FALSE;
   }
 
-  Serial::Print( "[SVM] SVM supported\n" );
+  LOG( "SVM supported" );
 
   return TRUE;
 }
@@ -35,7 +35,7 @@ BOOLEAN Svm::IsDisabled() {
   UINT64 vmCr = __readmsr( MSR_VM_CR );
 
   if ( vmCr & VM_CR_SVMDIS ) {
-    Serial::Print( "[SVM] SVM disabled in BIOS\n" );
+    LOG( "SVM disabled in BIOS" );
     return TRUE;
   }
 
@@ -51,5 +51,5 @@ void Svm::Enable() {
 
   __writemsr( MSR_EFER, efer );
 
-  Serial::Print( "[SVM] EFER.SVME enabled\n" );
+  LOG( "EFER.SVME enabled" );
 }
