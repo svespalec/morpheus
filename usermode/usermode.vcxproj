@@ -24,6 +24,7 @@
     <ProjectGuid>{b5d89a89-4b30-4595-905f-cd98785e35cc}</ProjectGuid>
     <RootNamespace>usermode</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Usermode</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
