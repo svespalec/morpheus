@@ -94,12 +94,13 @@
     <FilesToPackage Include="$(TargetPath)" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Driver.cxx" />
-    <ClCompile Include="Svm.cxx" />
+    <ClCompile Include="Source\Driver.cxx" />
+    <ClCompile Include="Source\Svm.cxx" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Serial.hxx" />
-    <ClInclude Include="Svm.hxx" />
+    <ClInclude Include="Source\Serial.hxx" />
+    <ClInclude Include="Source\Svm.hxx" />
+    <ClInclude Include="Source\Vmcb.hxx" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".clang-format" />
