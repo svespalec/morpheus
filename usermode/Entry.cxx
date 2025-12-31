@@ -16,7 +16,7 @@ int main() {
 
   if ( !hvPresent ) {
     LOG( "[-] No hypervisor detected" );
-    LOG( "[!] Press ENTER to exit" );
+    LOG( "[!] Press ENTER to exit!" );
 
     return std::getchar();
   }
@@ -35,7 +35,7 @@ int main() {
   if ( std::strcmp( hvVendor, "Morpheus" ) == 0 )
     LOG( "[+] Running under our hypervisor!" );
 
-  LOG( "[!] Press ENTER to exit" );
+  LOG( "[!] Press ENTER to exit!" );
 
   return std::getchar();
 }
